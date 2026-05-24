@@ -26,13 +26,14 @@
         .meta a:hover { text-decoration: underline; }
         h2 { color: #2d3748; border-bottom: 1px solid #edf2f7; padding-bottom: 8px; margin-top: 40px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
         .card h3 { margin-top: 0; color: #2b6cb0; }
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
-        .job { margin-bottom: 25px; }
-        .job-title { font-weight: bold; color: #2d3748; }
-        .job-meta { color: #718096; font-size: 0.9rem; margin-bottom: 10px; }
+        .job, .project { margin-bottom: 25px; }
+        .job-title, .project-title { font-weight: bold; color: #2d3748; font-size: 1.1rem; }
+        .job-meta, .project-meta { color: #718096; font-size: 0.9rem; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -84,6 +85,7 @@
                 <li>Verify compliance with New Zealand food safety and export regulatory frameworks, including the Animal Products Act and site-specific Risk Management Programmes (RMPs).</li>
                 <li>Conduct strict verification activities across slaughter and processing operations, adhering to Zero Faecal Tolerance (ZFT) standards and HACCP principles.</li>
                 <li>Maintain accurate, traceable inspection records and audit evidence in line with ISO 9001 and ISO 22000 documentation principles.</li>
+                <li>Support audit readiness for internal reviews and external regulatory verification.</li>
             </ul>
         </div>
         
@@ -93,7 +95,53 @@
             <ul>
                 <li>Supported compliance operations within a regulated healthcare environment governed by strict data protection and HIPAA-aligned privacy principles.</li>
                 <li>Maintained controlled user access to sensitive hospital systems, managed role-based permissions, and supported internal audit tracks.</li>
+                <li>Participated in regular risk assessments, incident reporting, and corrective action logging to guarantee documentation accuracy and traceability.</li>
             </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>📁 Technical Projects & Simulations</h2>
+        <div class="project">
+            <div class="project-title">1. Enterprise Cybersecurity Incident Response & Threat Mitigation</div>
+            <div class="project-meta">Simulations: Telstra, J.P. Morgan Chase, AIG (Shields Up)</div>
+            <ul>
+                <li><strong>Malware & Ransomware Mitigation:</strong> Analyzed and structurally mitigated active malware attacks, performing post-mortem incident reporting to isolate system impacts.</li>
+                <li><strong>Zero-Day Vulnerability Response:</strong> Identified, triaged, and developed rapid patch deployment strategies to counter zero-day exploits within production environments.</li>
+                <li><strong>Application Security & Data Analysis:</strong> Evaluated large financial datasets to identify fraudulent transaction patterns and built email classification models.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">2. Cyber Risk Governance, Information Security & Awareness</div>
+            <div class="project-meta">Simulations: Datacom, ANZ, Mastercard</div>
+            <ul>
+                <li><strong>APT Breach & Risk Assessment:</strong> Analyzed the systemic impact of an Advanced Persistent Threat (APT) breach, delivering a formal risk assessment.</li>
+                <li><strong>Digital & Social Engineering Investigations:</strong> Traced insider threats and social engineering attack vectors to secure corporate assets.</li>
+                <li><strong>Phishing Defensive Design:</strong> Deployed end-to-end simulated phishing campaigns to evaluate organizational vulnerability and behavioral readiness.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎓 Education & Certifications</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Academic</h3>
+                <ul>
+                    <li><strong>B.Sc. in Computer Science</strong><br>University of the People (Expected 2026)</li>
+                    <li><strong>Level 4 Diploma</strong><br>New Zealand Certificate in Meat Processing (Compliance & QA)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>IT & Security Certifications</h3>
+                <ul>
+                    <li><strong>ISC2:</strong> Certified in Cybersecurity (CC)</li>
+                    <li><strong>Google:</strong> IT Support Professional Certificate</li>
+                    <li><strong>Cisco:</strong> Introduction to Cybersecurity</li>
+                    <li><strong>U.S. DHS (CISA):</strong> Advanced Cybersecurity for Industrial Control Systems</li>
+                </ul>
+            </div>
         </div>
     </section>
 
