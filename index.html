@@ -1,149 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Barisua Madu | Portfolio</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f8f9fa;
-        }
-        header {
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        h1 { margin: 0; color: #1a202c; font-size: 2.5rem; }
-        .subtitle { font-size: 1.25rem; color: #4a5568; margin-top: 5px; font-weight: 500; }
-        .meta { color: #718096; font-size: 0.95rem; margin-top: 10px; }
-        .meta a { color: #3182ce; text-decoration: none; margin-right: 15px; }
-        .meta a:hover { text-decoration: underline; }
-        h2 { color: #2d3748; border-bottom: 1px solid #edf2f7; padding-bottom: 8px; margin-top: 40px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .card h3 { margin-top: 0; color: #2b6cb0; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .job, .project { margin-bottom: 25px; }
-        .job-title, .project-title { font-weight: bold; color: #2d3748; font-size: 1.1rem; }
-        .job-meta, .project-meta { color: #718096; font-size: 0.9rem; margin-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael Barisua Madu | Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --border-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #fff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--accent-blue);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .location-email {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .location-email a {
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--accent-blue);
+    }
+
+    /* Action Links & CV Grid */
+    .action-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-cv {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--accent-blue);
+      color: var(--bg-color);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .btn-cv:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .link-item {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 12px 20px;
+      border-radius: 8px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .link-item:hover {
+      border-color: var(--accent-blue);
+      background-color: #24334d;
+      transform: translateY(-1px);
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 45px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p.profile-text {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Grid layout for columns */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #475569;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: var(--accent-blue);
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--accent-blue);
+    }
+
+    .job-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .job-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .job-card {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .job-meta {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <div class="container">
     <header>
-        <h1>Michael Barisua Madu</h1>
-        <div class="subtitle">Meat Inspector & IT Systems Security Specialist</div>
-        <div class="meta">
-            📍 Taranaki, New Zealand | 
-            ✉️ <a href="mailto:barisuamadu@gmail.com">barisuamadu@gmail.com</a>
-        </div>
+      <h1>Michael Barisua Madu</h1>
+      <div class="subtitle">Meat Inspector & IT Systems Security Specialist</div>
+      <div class="location-email">
+        📍 Taranaki, New Zealand &nbsp;|&nbsp; ✉️ <a href="mailto:barisuamadu@gmail.com">barisuamadu@gmail.com</a>
+      </div>
+
+      <div class="action-grid">
+        <a href="CMI_RESUME.pdf" download class="btn-cv">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v2.5a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+          Download CV
+        </a>
+        <a href="https://www.linkedin.com/in/demadu/" target="_blank" class="link-item">LinkedIn</a>
+        <a href="https://au.seek.com/profiles/michael-madu-yLlW4kc4ln" target="_blank" class="link-item">Seek Profile</a>
+        <a href="https://www.instagram.com/im_mikaere?igsh=MWQ1emdlNDByd212cA%3D%3D&utm_source=qr" target="_blank" class="link-item">Instagram</a>
+      </div>
     </header>
 
     <section>
-        <h2>🚀 Professional Profile</h2>
-        <p>Practicing Company Meat Inspector with hands-on experience enforcing food safety regulations and Risk Management Programmes (RMPs) in high-throughput environments. Uniquely backed by a professional background in IT systems administration, cybersecurity, and digital access control within regulated environments.</p>
+      <h2>🚀 Professional Profile</h2>
+      <p class="profile-text">
+        Practicing Company Meat Inspector with hands-on experience enforcing food safety regulations and Risk Management Programmes (RMPs) in high-throughput environments. Uniquely backed by a professional background in IT systems administration, cybersecurity, and digital access control within regulated environments.
+      </p>
     </section>
 
     <section>
-        <h2>🛠️ Areas of Expertise</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Compliance & Food Safety</h3>
-                <ul>
-                    <li>Regulatory Compliance (Animal Products Act)</li>
-                    <li>HACCP & Risk Management Programmes (RMPs)</li>
-                    <li>ISO 22000 / ISO 9001 Systems Alignment</li>
-                    <li>Audit Readiness & Documentation Control</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>IT & Systems Security</h3>
-                <ul>
-                    <li>Active Directory & Microsoft 365</li>
-                    <li>Network Security (Splunk, Wireshark, Nmap)</li>
-                    <li>ERP Fundamentals (SAP Materials Management)</li>
-                    <li>Access Control & Incident Response</li>
-                </ul>
-            </div>
+      <h2>🛠️ Areas of Expertise</h2>
+      <div class="expertise-grid">
+        <div class="card">
+          <h3>Compliance & Food Safety</h3>
+          <ul>
+            <li>Regulatory Compliance (Animal Products Act)</li>
+            <li>HACCP & Risk Management Programmes (RMPs)</li>
+            <li>ISO 22000 / ISO 9001 Systems Alignment</li>
+            <li>Audit Readiness & Documentation Control</li>
+          </ul>
         </div>
+        <div class="card">
+          <h3>IT & Systems Security</h3>
+          <ul>
+            <li>Active Directory & Microsoft 365</li>
+            <li>Network Security (Splunk, Wireshark, Nmap)</li>
+            <li>ERP Fundamentals (SAP Materials Management)</li>
+            <li>Access Control & Incident Response</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section>
-        <h2>💼 Work History</h2>
-        <div class="job">
-            <div class="job-title">Meat Inspector | Compliance & Quality Assurance</div>
-            <div class="job-meta">AFFCO New Zealand Limited (Aug 2023 - Present)</div>
-            <ul>
-                <li>Verify compliance with New Zealand food safety and export regulatory frameworks, including the Animal Products Act and site-specific Risk Management Programmes (RMPs).</li>
-                <li>Conduct strict verification activities across slaughter and processing operations, adhering to Zero Faecal Tolerance (ZFT) standards and HACCP principles.</li>
-                <li>Maintain accurate, traceable inspection records and audit evidence in line with ISO 9001 and ISO 22000 documentation principles.</li>
-                <li>Support audit readiness for internal reviews and external regulatory verification.</li>
-            </ul>
+      <h2>💼 Work History</h2>
+      <div class="card job-card">
+        <div class="job-meta">
+          <div class="job-title">Meat Inspector | Compliance & QA</div>
+          <div>Aug 2023 - Present</div>
         </div>
-        
-        <div class="job">
-            <div class="job-title">Systems Security Specialist</div>
-            <div class="job-meta">University of Port Harcourt Teaching Hospital (2019 - 2023)</div>
-            <ul>
-                <li>Supported compliance operations within a regulated healthcare environment governed by strict data protection and HIPAA-aligned privacy principles.</li>
-                <li>Maintained controlled user access to sensitive hospital systems, managed role-based permissions, and supported internal audit tracks.</li>
-                <li>Participated in regular risk assessments, incident reporting, and corrective action logging to guarantee documentation accuracy and traceability.</li>
-            </ul>
+        <div style="color: var(--accent-blue); font-size: 0.95rem; margin-bottom: 10px;">AFFCO New Zealand Limited</div>
+        <ul>
+          <li>Verify compliance with New Zealand food safety and export regulatory frameworks, including the Animal Products Act and site-specific Risk Management Programmes (RMPs).</li>
+          <li>Conduct strict verification activities across slaughter and processing operations, adhering to Zero Faecal Tolerance (ZFT) standards and HACCP principles.</li>
+          <li>Maintain accurate, traceable inspection records and audit evidence in line with ISO 9001 and ISO 22000 documentation principles.</li>
+        </ul>
+      </div>
+
+      <div class="card job-card">
+        <div class="job-meta">
+          <div class="job-title">Systems Security Specialist</div>
+          <div>2019 - 2023</div>
         </div>
+        <div style="color: var(--accent-blue); font-size: 0.95rem; margin-bottom: 10px;">University of Port Harcourt Teaching Hospital</div>
+        <ul>
+          <li>Supported compliance operations within a regulated healthcare environment governed by strict data protection and HIPAA-aligned privacy principles.</li>
+          <li>Maintained controlled user access to sensitive hospital systems, managed role-based permissions, and supported internal audit tracks.</li>
+          <li>Participated in regular risk assessments, incident reporting, and corrective action logging to guarantee documentation accuracy and traceability.</li>
+        </ul>
+      </div>
     </section>
 
     <section>
-        <h2>📁 Technical Projects & Simulations</h2>
-        <div class="project">
-            <div class="project-title">1. Enterprise Cybersecurity Incident Response & Threat Mitigation</div>
-            <div class="project-meta">Simulations: Telstra, J.P. Morgan Chase, AIG (Shields Up)</div>
-            <ul>
-                <li><strong>Malware & Ransomware Mitigation:</strong> Analyzed and structurally mitigated active malware attacks, performing post-mortem incident reporting to isolate system impacts.</li>
-                <li><strong>Zero-Day Vulnerability Response:</strong> Identified, triaged, and developed rapid patch deployment strategies to counter zero-day exploits within production environments.</li>
-                <li><strong>Application Security & Data Analysis:</strong> Evaluated large financial datasets to identify fraudulent transaction patterns and built email classification models.</li>
-            </ul>
+      <h2>📁 Technical Projects & Simulations</h2>
+      <div class="expertise-grid">
+        <div class="card">
+          <h3>Enterprise Incident Response</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Simulations: Telstra, J.P. Morgan Chase, AIG</p>
+          <ul>
+            <li>Analyzed and mitigated active malware attacks, performing post-mortem incident isolation.</li>
+            <li>Developed rapid patch strategies to counter zero-day exploits within production environments.</li>
+          </ul>
         </div>
-
-        <div class="project">
-            <div class="project-title">2. Cyber Risk Governance, Information Security & Awareness</div>
-            <div class="project-meta">Simulations: Datacom, ANZ, Mastercard</div>
-            <ul>
-                <li><strong>APT Breach & Risk Assessment:</strong> Analyzed the systemic impact of an Advanced Persistent Threat (APT) breach, delivering a formal risk assessment.</li>
-                <li><strong>Digital & Social Engineering Investigations:</strong> Traced insider threats and social engineering attack vectors to secure corporate assets.</li>
-                <li><strong>Phishing Defensive Design:</strong> Deployed end-to-end simulated phishing campaigns to evaluate organizational vulnerability and behavioral readiness.</li>
-            </ul>
+        <div class="card">
+          <h3>Cyber Risk Governance</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;">Simulations: Datacom, ANZ, Mastercard</p>
+          <ul>
+            <li>Analyzed the systemic impact of APT breaches, delivering a formal risk assessment framework.</li>
+            <li>Traced insider threats and deployed end-to-end simulated phishing defensive tracks.</li>
+          </ul>
         </div>
+      </div>
     </section>
 
     <section>
-        <h2>🎓 Education & Certifications</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Academic</h3>
-                <ul>
-                    <li><strong>B.Sc. in Computer Science</strong><br>University of the People (Expected 2026)</li>
-                    <li><strong>Level 4 Diploma</strong><br>New Zealand Certificate in Meat Processing (Compliance & QA)</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>IT & Security Certifications</h3>
-                <ul>
-                    <li><strong>ISC2:</strong> Certified in Cybersecurity (CC)</li>
-                    <li><strong>Google:</strong> IT Support Professional Certificate</li>
-                    <li><strong>Cisco:</strong> Introduction to Cybersecurity</li>
-                    <li><strong>U.S. DHS (CISA):</strong> Advanced Cybersecurity for Industrial Control Systems</li>
-                </ul>
-            </div>
+      <h2>🎓 Education & Certifications</h2>
+      <div class="expertise-grid">
+        <div class="card">
+          <h3>Academic</h3>
+          <ul>
+            <li><strong>B.Sc. in Computer Science</strong><br><span style="font-size:0.9rem;">University of the People (Expected 2026)</span></li>
+            <li style="margin-top:10px;"><strong>Level 4 Diploma</strong><br><span style="font-size:0.9rem;">NZ Certificate in Meat Processing (Compliance & QA)</span></li>
+          </ul>
         </div>
+        <div class="card">
+          <h3>IT & Security Tracks</h3>
+          <ul>
+            <li>ISC2: Certified in Cybersecurity (CC)</li>
+            <li>Google: IT Support Professional Certificate</li>
+            <li>U.S. DHS (CISA): Advanced Cybersecurity for ICS</li>
+          </ul>
+        </div>
+      </div>
     </section>
+  </div>
 
 </body>
 </html>
